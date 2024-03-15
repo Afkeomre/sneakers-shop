@@ -61,6 +61,8 @@
 		}
 	};
 
+	const sleep = ms => new Promise(res => setTimeout(res, ms));
+
 	const fetchItems = async () => {
 		try {
 			const params = {
@@ -83,7 +85,11 @@
 				isAdded: false
 			}));
 		} catch (err) {
-			console.log(err);
+			if (err.response.status === 429) {
+				await sleep(100);
+			} else {
+				console.log(err);
+			}
 		}
 	};
 

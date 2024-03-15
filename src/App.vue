@@ -62,11 +62,9 @@
 
 	<div class="bg-white w-4/5 mx-auto rounded-xl shadow-xl my-14">
 		<Header :totalPrice="cartSum" @openDrawer="openDrawer" />
-
 		<div class="p-10">
 			<router-view></router-view>
 		</div>
-
 	</div>
 </template>
 
